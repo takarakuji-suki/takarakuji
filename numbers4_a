@@ -1,0 +1,51 @@
+import xlrd
+
+zen_data = xlrd.open_workbook('T-data.xls')
+
+n4_data = zen_data.sheet_by_name('N4')
+
+
+
+def n4_yosou_03(num):
+    line_data = n4_data.col_values(num)
+    ans_01 = []
+    for i in range(len(line_data) - 3):
+        if line_data[i] == line_data[-3] and\
+                line_data[i + 1] == line_data[-2] and\
+                line_data[i + 2] == line_data[-1]:
+            a = int(line_data[i + 3])
+            ans_01.append(a)
+    return sorted(ans_01)
+
+[print(str(k + 1) + ":" + str(n4_yosou_03(k))) for k in range(4)]
+
+
+def n4_yosou_04(num):
+    line_data = n4_data.col_values(num)
+    ans_02 = []
+    for i in range(len(line_data) - 4):
+        if line_data[i] == line_data[-4] and\
+                line_data[i + 1] == line_data[-3] and\
+                line_data[i + 2] == line_data[-2] and\
+                line_data[i + 3] == line_data[-1]:
+            a = int(line_data[i + 4])
+            ans_02.append(a)
+    return sorted(ans_02)
+
+[print(str(k + 1) + ":" + str(n4_yosou_04(k))) for k in range(4)]
+
+
+def n4_yosou_05(num):
+    line_data = n4_data.col_values(num)
+    ans_03 = []
+    for i in range(len(line_data) - 5):
+        if line_data[i] == line_data[-5] and\
+                line_data[i + 1] == line_data[-4] and\
+                line_data[i + 2] == line_data[-3] and\
+                line_data[i + 3] == line_data[-2] and\
+                line_data[i + 4] == line_data[-1]:
+            a = int(line_data[i + 5])
+            ans_03.append(a)
+    return sorted(ans_03)
+
+[print(str(k + 1) + ":" + str(n4_yosou_05(k))) for k in range(4)]
